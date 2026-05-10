@@ -13,7 +13,7 @@ https://pan.baidu.com/s/1IHt1YUyvPr-Uh11BYI6I9Q?pwd=cd38
 
 ## 1. CLIP
 <div align="center">
-    <img src="assets/clip.png" width="65%">
+    <img src="cross_modal_alignment/report/assets/clip.png" width="65%">
 </div>
 
 ```python
@@ -44,7 +44,7 @@ loss = (loss_i + loss_t)/2
 ## 2. BLIP
 ### 2.1 Model
 <div align="center">
-    <img src="assets/blip_model.png" width="75%">
+    <img src="cross_modal_alignment/report/assets/blip_model.png" width="75%">
 </div>
 
 - 图片经过一个ViT，image Encoder（可学习）
@@ -74,7 +74,7 @@ loss = loss_ita + loss_itm + loss_lm
 
 #### 2.2.2 Retrieval微调
 <div align="center">
-    <img src="assets/blip_retrieval.png" width="55%">
+    <img src="cross_modal_alignment/report/assets/blip_retrieval.png" width="55%">
 </div>
 
 在检索数据上进行微调，解决检索任务
@@ -88,7 +88,7 @@ loss = loss_ita + loss_itm
 
 #### 2.2.3 Captioning微调
 <div align="center">
-    <img src="assets/blip_captioning.png" width="55%">
+    <img src="cross_modal_alignment/report/assets/blip_captioning.png" width="55%">
 </div>
 
 在caption数据上进行微调，解决captioning任务
@@ -101,7 +101,7 @@ loss = model(image, caption) # LM Loss
 
 #### 2.2.4 VQA微调
 <div align="center">
-    <img src="assets/blip_vqa.png" width="55%">
+    <img src="cross_modal_alignment/report/assets/blip_vqa.png" width="55%">
 </div>
 
 LM，训练：文本-图片交叉Encoder模块(Image-grounded Text encoder) + Decoder模块(Image-grounded Text decoder)
@@ -113,7 +113,7 @@ loss = model(image, question, answer, train=True, n=n, weights=weights) # LM Los
 ## 3. BLIP2
 ### 3.1 Model
 <div align="center">
-    <img src="assets/blip2.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/blip2.png" width="100%">
 </div>
 
 - 整个BLIP2只训练投影器Q-Former，而Image Encoder、LLM全部都是冻结的，参与训练参数很少
@@ -133,14 +133,14 @@ loss = model(image, question, answer, train=True, n=n, weights=weights) # LM Los
 
 ### 3.3 Stage2 vision-to-language generative pre-training
 <div align="center">
-    <img src="assets/blip2_stage2.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/blip2_stage2.png" width="100%">
 </div>
 
 - 冻结Image Encoder、LLM
 - stage1，已经学好了Q-Former，能得到图片的32个query，然后用MLP把它投影到LLM的向量空间，放在LLM里面，作为`soft prompt`，让LLM完成text generation的任务
 
 <div align="center">
-    <img src="assets/blip2_vqa.png" width="60%">
+    <img src="cross_modal_alignment/report/assets/blip2_vqa.png" width="60%">
 </div>
 
 - 对VQA这种任务，输入文本和image一起进Q-Former，然后输入文本和32个query一起进LLM
@@ -265,7 +265,7 @@ BLIP经常能识别主物体和大场景，但是描述偏短，BLIP2的caption�
 ### 4.1 Case1
 
 <div align="center">
-    <img src="assets/000000000632.jpg" width="70%">
+    <img src="cross_modal_alignment/report/assets/000000000632.jpg" width="70%">
 </div>
 
 ```json
@@ -291,7 +291,7 @@ BLIP经常能识别主物体和大场景，但是描述偏短，BLIP2的caption�
 ### 4.2 Case2
 
 <div align="center">
-    <img src="assets/000000004134.jpg" width="70%">
+    <img src="cross_modal_alignment/report/assets/000000004134.jpg" width="70%">
 </div>
 
 ```json
@@ -359,19 +359,19 @@ random_seed = 42
 ### 2.1 CLIP
 
 <div align="center">
-    <img src="assets/clip_umap_modality.png" width="80%">
+    <img src="cross_modal_alignment/report/assets/clip_umap_modality.png" width="80%">
 </div>
 
 ### 2.2 BLIP
 
 <div align="center">
-    <img src="assets/blip_umap_modality.png" width="80%">
+    <img src="cross_modal_alignment/report/assets/blip_umap_modality.png" width="80%">
 </div>
 
 ### 2.3 BLIP2
 
 <div align="center">
-    <img src="assets/blip2_umap_modality.png" width="80%">
+    <img src="cross_modal_alignment/report/assets/blip2_umap_modality.png" width="80%">
 </div>
 
 ### 2.4 分析
@@ -435,19 +435,19 @@ BLIP相比CLIP提升明显，说明ITC+ITM的训练目标确实增强了图文�
 ### 4.1 CLIP
 
 <div align="center">
-    <img src="assets/clip_semantic_umap.png" width="80%">
+    <img src="cross_modal_alignment/report/assets/clip_semantic_umap.png" width="80%">
 </div>
 
 ### 4.2 BLIP
 
 <div align="center">
-    <img src="assets/blip_semantic_umap.png" width="80%">
+    <img src="cross_modal_alignment/report/assets/blip_semantic_umap.png" width="80%">
 </div>
 
 ### 4.3 BLIP2
 
 <div align="center">
-    <img src="assets/blip2_semantic_umap.png" width="80%">
+    <img src="cross_modal_alignment/report/assets/blip2_semantic_umap.png" width="80%">
 </div>
 
 ### 4.4 分析
@@ -509,17 +509,17 @@ CLIP文搜图，只关注在了主物体toilet，忽略了sign，而BLIP、BLIP2
 
 CLIP:
 <div align="center">
-    <img src="assets/case1_clip.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case1_clip.png" width="100%">
 </div>
 
 BLIP:
 <div align="center">
-    <img src="assets/case1_blip.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case1_blip.png" width="100%">
 </div>
 
 BLIP2:
 <div align="center">
-    <img src="assets/case1_blip2.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case1_blip2.png" width="100%">
 </div>
 
 
@@ -531,23 +531,23 @@ CLIP文搜图，只关注在了主物体man和soccer，忽略了hold up
 
 GT:
 <div align="center">
-    <img src="assets/case2_gt.png" width="30%">
+    <img src="cross_modal_alignment/report/assets/case2_gt.png" width="30%">
 </div>
 
 
 CLIP:
 <div align="center">
-    <img src="assets/case2_clip.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case2_clip.png" width="100%">
 </div>
 
 BLIP:
 <div align="center">
-    <img src="assets/case2_blip.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case2_blip.png" width="100%">
 </div>
 
 BLIP2:
 <div align="center">
-    <img src="assets/case2_blip2.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case2_blip2.png" width="100%">
 </div>
 
 
@@ -564,23 +564,23 @@ CLIP rank=1229, BLIP rank=4, BLIP2 rank=3
 
 GT:
 <div align="center">
-    <img src="assets/case3_gt.png" width="30%">
+    <img src="cross_modal_alignment/report/assets/case3_gt.png" width="30%">
 </div>
 
 
 CLIP:
 <div align="center">
-    <img src="assets/case3_clip.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case3_clip.png" width="100%">
 </div>
 
 BLIP:
 <div align="center">
-    <img src="assets/case3_blip.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case3_blip.png" width="100%">
 </div>
 
 BLIP2:
 <div align="center">
-    <img src="assets/case3_blip2.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case3_blip2.png" width="100%">
 </div>
 
 ### 1.4 case4
@@ -594,23 +594,23 @@ caption = "A person looking at their cell phone at another person taking a pictu
 
 GT:
 <div align="center">
-    <img src="assets/case4_gt.png" width="30%">
+    <img src="cross_modal_alignment/report/assets/case4_gt.png" width="30%">
 </div>
 
 
 CLIP:
 <div align="center">
-    <img src="assets/case4_clip.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case4_clip.png" width="100%">
 </div>
 
 BLIP:
 <div align="center">
-    <img src="assets/case4_blip.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case4_blip.png" width="100%">
 </div>
 
 BLIP2:
 <div align="center">
-    <img src="assets/case4_blip2.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case4_blip2.png" width="100%">
 </div>
 
 
@@ -618,7 +618,7 @@ BLIP2:
 ### 2.1 case1
 Image:
 <div align="center">
-    <img src="assets/case5_gt.png" width="40%">
+    <img src="cross_modal_alignment/report/assets/case5_gt.png" width="40%">
 </div>
 
 
@@ -691,7 +691,7 @@ A person's hand holding up an active smartphone.
 ```
 
 <div align="center">
-    <img src="assets/case6.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case6.png" width="100%">
 </div>
 
 ```json
@@ -699,7 +699,7 @@ A person's hand holding up an active smartphone.
 ```
 
 <div align="center">
-    <img src="assets/case7.png" width="100%">
+    <img src="cross_modal_alignment/report/assets/case7.png" width="100%">
 </div>
 
 
