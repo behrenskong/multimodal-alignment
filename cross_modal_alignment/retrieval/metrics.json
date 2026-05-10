@@ -1,0 +1,25 @@
+{   "clip": {
+        "text_to_image_R@1": 30.45494556427002,
+        "text_to_image_R@5": 54.78532314300537,
+        "text_to_image_R@10": 66.24290347099304,
+        "image_to_text_R@1": 50.019999999999996,
+        "image_to_text_R@5": 74.8,
+        "image_to_text_R@10": 83.16
+  },
+    "blip": {
+        "text_to_image_R@1": 61.969298124313354,
+        "text_to_image_R@5": 85.35619974136353,
+        "text_to_image_R@10": 91.40481352806091,
+        "image_to_text_R@1": 78.64,
+        "image_to_text_R@5": 95.04,
+        "image_to_text_R@10": 97.58
+    },
+    "blip2": {
+        "text_to_image_R@1": 65.17550349235535,
+        "text_to_image_R@5": 87.65091300010681,
+        "text_to_image_R@10": 92.99192428588867,
+        "image_to_text_R@1": 77.53999999999999,
+        "image_to_text_R@5": 95.08,
+        "image_to_text_R@10": 97.72
+    }
+}
