@@ -13,8 +13,19 @@ from transformers.models.clip.configuration_clip import CLIPTextConfig
 from transformers.models.clip.modeling_clip import (
     CLIPEncoder,
     CLIPPreTrainedModel,
-    _expand_mask,
 )
+
+
+try:
+    from transformers.models.clip.modeling_clip import _expand_mask
+except ImportError:
+    def _expand_mask(mask: torch.Tensor, dtype: torch.dtype, tgt_len: int = None):
+        """Compatibility copy of the old transformers CLIP helper."""
+        bsz, src_len = mask.size()
+        tgt_len = tgt_len if tgt_len is not None else src_len
+        expanded_mask = mask[:, None, None, :].expand(bsz, 1, tgt_len, src_len).to(dtype)
+        inverted_mask = 1.0 - expanded_mask
+        return inverted_mask.masked_fill(inverted_mask.to(torch.bool), torch.finfo(dtype).min)
 
 
 class CtxCLIPTextModel(CLIPPreTrainedModel):
